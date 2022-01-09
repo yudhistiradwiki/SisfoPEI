@@ -13,6 +13,6 @@ class MahasiswaModel extends Model
 
     public function krs()
     {
-        return $this->belongsToMany('App\Models\KrsModel');
+        return $this->hasOne('App\Models\KrsModel');
     }
 }
