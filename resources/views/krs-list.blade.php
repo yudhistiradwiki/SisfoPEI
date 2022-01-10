@@ -26,20 +26,19 @@ Yudhistira
                 <center class="mb-3">
                     <legend class="mt-3"><strong>KARTU RENCANA STUDI</strong></legend>
                     <table>
-                        @foreach ($dataMhsa as $dataMhsa)
-                      <tr>
+
+                        <tr>
                         <td><strong>NIM</strong></td>
-                        <td>&nbsp;: {{$dataMhsa -> nim}}</td>
+                        <td>&nbsp;: dataMhsa -> nim}}</td>
                       </tr>
                       <tr>
                         <td><strong>Nama Lengkap</strong></td>
-                        <td>&nbsp;: {{$dataMhsa -> nama_lengkap}}</td>
+                        <td>&nbsp;: dataMhsa -> nama_lengkap}}</td>
                       </tr>
                       <tr>
                         <td><strong>Program Studi</strong></td>
-                        <td>&nbsp;: {{$dataMhsa -> nama_prodi}}</td>
+                        <td>&nbsp;: dataMhsa -> nama_prodi}}</td>
                       </tr>
-                      @endforeach
                       <tr>
                         <td><strong>Tahun Akademik (Semester)</strong></td>
                         <td>&nbsp;: 2022 -&nbsp;ganjil</td>
