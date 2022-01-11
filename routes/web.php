@@ -86,11 +86,16 @@ Route::get('/tahunakad/cari', [TahunAkadController::class, 'cari'])-> middleware
 //krs
 Route::get('/krs', [KrsController::class, 'select'])-> middleware('auth');
 
-Route::get('/krs/view', function () {
+/*Route::get('/krs/view', function () {
     return view('krs-list');
 }) -> middleware('auth');
+*/
 
-Route::get('/krs/view/{nim}/{thn}', [KrsController::class, 'search2']);
+Route::get('/krs/view', function () {
+    return view('krs-listt');
+}) -> middleware('auth');
+
+Route::get('/krs/view/{nim}/{thn}', [KrsController::class, 'coba']);
 
 Route::get('/nilai', function () {
     return view('nilai-select');

@@ -4,15 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class KrsModel extends Model
 {
-    use HasFactory;
-    protected $table = "krs";
-    protected $primaryKey = "id_krs";
-
-    public function mahasiswa()
+    public function allData($id,$thn)
     {
-        return $this->belongsTo('App\Models\MahasiswaModel');
+        return DB::table('krs')
+                ->Join('matakuliah', 'matakuliah.kode_matakuliah', '=', 'krs.kode_matakuliah')
+                ->Join('mahasiswa', 'mahasiswa.nim', '=', 'krs.nim')
+                ->where('krs.nim', $id)
+                ->Join('tahun_akademik', 'tahun_akademik.id_thn_akad', '=', 'krs.id_thn_akad')
+                ->where('krs.id_thn_akad', $thn)
+                ->get();
     }
 }

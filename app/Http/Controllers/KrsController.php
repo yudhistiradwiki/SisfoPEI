@@ -10,6 +10,11 @@ use App\Models\MahasiswaModel;
 
 class KrsController extends Controller
 {
+    public function __construct()
+    {
+        $this->KrsModel = new KrsModel();
+    }
+
     public function search($id){
         $dataMhs = DB::table('krs') -> where('nim', $id) -> get();
         return view('krs-list', ['dataMhs' => $dataMhs]);
@@ -23,6 +28,12 @@ class KrsController extends Controller
         $dataMhswa = DB::table('mahasiswa') -> where('nim', $id) -> get();
         $dataKrs = DB::table('krs') -> where('nim', $id) -> where('id_thn_akad', $thn) -> get();
         return view('krs-list', ['dataMhsa' => $dataMhs, 'dataMahasiswa' => $dataMhswa, 'dataKrs' => $dataKrs]);
+    }
+
+    public function coba($id,$thn){
+        $dataMhswa = DB::table('mahasiswa') -> where('nim', $id) -> get();
+        $data = ['join' =>$this->KrsModel->allData($id,$thn), 'mhs' => $dataMhswa];
+        return view('krs-listt', $data);
     }
 
 }

@@ -26,7 +26,7 @@ Yudhistira
         <p class="card-description">
           Isikan data dibawah ini dengan mahasiswa yang ingin mengambil KRS.
         </p>
-        <form class="forms-sample" action="/krs/view/201904001/1" method="POST" enctype="multipart/form-data">
+        <form class="forms-sample" action="/krs/view/201904001/2" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
           <div class="form-group">
             <label for="nim">Nim</label>
@@ -37,7 +37,7 @@ Yudhistira
             <select class="form-control" id="thn_akad" name="thn_akad">
                 <option>Silahkan pilih tahun akademik</option>
                 @foreach ($dataThn as $dataThn)
-                <option>{{$dataThn -> tahun_akademik}} - {{$dataThn -> semester}}</option>
+                <option value="{{$dataThn -> id_thn_akad}}">{{$dataThn -> tahun_akademik}} - {{$dataThn -> semester}}</option>
                 @endforeach
               </select>
             </div>
