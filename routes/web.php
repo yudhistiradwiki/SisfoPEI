@@ -84,9 +84,7 @@ Route::get('/tahunakad/delete/{nim}', [TahunAkadController::class, 'delete'])-> 
 Route::get('/tahunakad/cari', [TahunAkadController::class, 'cari'])-> middleware('auth');;
 
 //krs
-Route::get('/krs', function () {
-    return view('krs-select');
-}) -> middleware('auth');
+Route::get('/krs', [KrsController::class, 'select'])-> middleware('auth');
 
 Route::get('/krs/view', function () {
     return view('krs-list');

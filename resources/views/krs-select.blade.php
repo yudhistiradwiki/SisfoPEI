@@ -35,15 +35,10 @@ Yudhistira
           <div class="form-group">
             <label for="tahun_akad">Tahun Akademik</label>
             <select class="form-control" id="thn_akad" name="thn_akad">
-                <option>Silahkan Pilih Tahun Akademik</option>
-                <option>2018/2019 - Ganjil</option>
-                <option>2018/2019 - Genap</option>
-                <option>2019/2020 - Ganjil</option>
-                <option>2019/2020 - Genap</option>
-                <option>2020/2021 - Ganjil</option>
-                <option>2020/2021 - Genap</option>
-                <option>2021/2022 - Ganjil</option>
-                <option>2021/2022 - Genap</option>
+                <option>Silahkan pilih tahun akademik</option>
+                @foreach ($dataThn as $dataThn)
+                <option>{{$dataThn -> tahun_akademik}} - {{$dataThn -> semester}}</option>
+                @endforeach
               </select>
             </div>
           <button type="submit" class="btn btn-primary me-2">Submit</button>

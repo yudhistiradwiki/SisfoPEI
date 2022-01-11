@@ -14,9 +14,15 @@ class KrsController extends Controller
         $dataMhs = DB::table('krs') -> where('nim', $id) -> get();
         return view('krs-list', ['dataMhs' => $dataMhs]);
     }
-    public function search2($id){
-        $dataMhs = DB::table('krs') -> where('nim', $id) -> get();
-        return view('krs-list', ['dataMhsa' => $dataMhs]);
+    public function select(){
+        $dataThn = DB::table('tahun_akademik') -> get();
+        return view('krs-select', ['dataThn' => $dataThn]);
+    }
+    public function search2($id, $thn){
+        $dataMhs = DB::table('krs') -> where('nim', $id) -> where('id_thn_akad', $thn) -> get();
+        $dataMhswa = DB::table('mahasiswa') -> where('nim', $id) -> get();
+        $dataKrs = DB::table('krs') -> where('nim', $id) -> where('id_thn_akad', $thn) -> get();
+        return view('krs-list', ['dataMhsa' => $dataMhs, 'dataMahasiswa' => $dataMhswa, 'dataKrs' => $dataKrs]);
     }
 
 }

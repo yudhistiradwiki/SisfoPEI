@@ -26,23 +26,28 @@ Yudhistira
                 <center class="mb-3">
                     <legend class="mt-3"><strong>KARTU RENCANA STUDI</strong></legend>
                     <table>
-
+                        @foreach ($dataMahasiswa as $dataMahasiswa)
                         <tr>
                         <td><strong>NIM</strong></td>
-                        <td>&nbsp;: dataMhsa -> nim}}</td>
+                        <td>&nbsp;: {{$dataMahasiswa -> nim}}</td>
                       </tr>
                       <tr>
                         <td><strong>Nama Lengkap</strong></td>
-                        <td>&nbsp;: dataMhsa -> nama_lengkap}}</td>
+                        <td>&nbsp;: {{$dataMahasiswa -> nama_lengkap}}</td>
                       </tr>
                       <tr>
                         <td><strong>Program Studi</strong></td>
-                        <td>&nbsp;: dataMhsa -> nama_prodi}}</td>
+                        <td>&nbsp;: {{$dataMahasiswa -> nama_prodi}}</td>
                       </tr>
+                      @endforeach
                       <tr>
                         <td><strong>Tahun Akademik (Semester)</strong></td>
-                        <td>&nbsp;: 2022 -&nbsp;ganjil</td>
+                        <td>&nbsp;: @foreach ($dataMhsa as $dataMhsa)
+                            {{$dataMhsa -> id_thn_akad}}
+                            @endforeach
+                        </td>
                       </tr>
+
                     </table>
                   </center>
             </div>
@@ -68,14 +73,15 @@ Yudhistira
             <?php
             $no = 1;
             $jumlahSks = 0;
+            $sks = 5;
             ?>
-            @foreach ($dataMhsa as $dataMhsa)
+            @foreach ($dataKrs as $dataKrs)
             <tbody>
             <tr>
               <td width="20px"><?= $no++; ?></td>
-              <td>;</td>
+              <td>{{$dataKrs -> kode_matakuliah}}</td>
               <td>nama_matakuliah</td>
-              <td>5</td>
+              <td><?=$sks;?></td>
               <td>
                   <a href="/mahasiswa/update/">
                       <button type="button" class="btn btn-inverse-success btn-icon">
@@ -87,6 +93,9 @@ Yudhistira
                       <i class="ti-trash"></i></button>
                   </a>
               </td>
+              <?php
+              $jumlahSks =+ $sks;
+              ?>
             </tr>
             @endforeach
             <tr>
