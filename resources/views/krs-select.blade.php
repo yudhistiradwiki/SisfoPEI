@@ -26,7 +26,7 @@ Yudhistira
         <p class="card-description">
           Isikan data dibawah ini dengan mahasiswa yang ingin mengambil KRS.
         </p>
-        <form class="forms-sample" action="/krs/view/201904001/2" method="POST" enctype="multipart/form-data">
+        <form class="forms-sample" action="/krs/view/201904001/2" method="GET" enctype="multipart/form-data">
             {{ csrf_field() }}
           <div class="form-group">
             <label for="nim">Nim</label>
