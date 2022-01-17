@@ -9,6 +9,7 @@ use App\Http\Controllers\TahunAkadController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KrsController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\KhsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +101,9 @@ Route::get('/krs/view/{nim}/{thn}', [KrsController::class, 'coba']);
 
 
 Route::get('/nilai/view/{kode_matakuliah}/{thn}', [NilaiController::class, 'coba']);
+
+
+Route::get('/khs/view/{nim}/{thn}', [KhsController::class, 'coba']);
 
 Route::get('/nilai', function () {
     return view('nilai-select');
