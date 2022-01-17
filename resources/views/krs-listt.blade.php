@@ -27,7 +27,6 @@ Yudhistira
                     <legend class="mt-3"><strong>KARTU RENCANA STUDI</strong></legend>
                     <table>
                         @foreach ($mhs as $dataMhs)
-
                         <tr>
                         <td><strong>NIM</strong></td>
                         <td>&nbsp;: {{$dataMhs->nim}}</td>

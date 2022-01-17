@@ -19,69 +19,79 @@ Yudhistira
 
 
 @section('konten')
-<div class="container-fluid">
-    <div class="alert alert-success" role="alert">
-      <i class="fas fa-university"></i> Kartu Rencana Studi (KRS)
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+            <div>
+                <center class="mb-3">
+                    <legend class="mt-3"><strong>NILAI AKHIR MAHASISWA</strong></legend>
+                    <table>
+                        @foreach ($mhs as $dataMhs)
+                        <tr>
+                        <td><strong>Kode Mata Kuliah</strong></td>
+                        <td>&nbsp;: {{$dataMhs->kode_matakuliah}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Nama Mata Kuliah</strong></td>
+                        <td>&nbsp;: {{$dataMhs->nama_matakuliah}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>SKS</strong></td>
+                        <td>&nbsp;: {{$dataMhs->sks}}</td>
+                      </tr>
+                      @endforeach
+                      @foreach ($join as $data)
+                        <?php
+                      $semester = $data->semester == "Ganjil";
+                      if($semester == "Ganjil"){
+                        $tampilSemester = "Ganjil";
+                      }
+                      else{
+                        $tampilSemester = "Genap";
+                      }
+                      ?>
+                      @endforeach
+                      <tr>
+                        <td><strong>Tahun Akademik (Semester)</strong></td>
+                        <td>&nbsp;: <?=$tampilSemester;?></td>
+                      </tr>
+                    </table>
+                  </center>
+            </div>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>NIM</th>
+                <th>Nama Mahasiswa</th>
+                <th>Nilai</th>
+                </tr>
+            </thead>
+            <?php
+            $no = 1;
+            $jumlahSks = 0;
+            ?>
+            <tbody>
+                @foreach ($join as $dataMahasiswa)
+            <tr>
+              <td width="20px"><?= $no++; ?></td>
+              <td>{{$dataMahasiswa ->nim}}</td>
+              <td>{{$dataMahasiswa ->nama_lengkap}}</td>
+              <td><input type="text" name="nilai[]" value="{{$dataMahasiswa->nilai}}"></td>
+              <?php
+              $sks = $dataMahasiswa -> sks;
+              $jumlahSks = $jumlahSks + $sks;
+              ?>
+            </tr>
+            @endforeach
+            </tbody>
+                </table>
+                <br>
+                <button>Simpan</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <center>
-        <legend><strong>MASUKKAN NILAI AKHIR</strong></legend>
-
-        <table>
-          <tr>
-            <td>Kode Mata Kuliah</td>
-            <td>: $kode_matakuliah;</td>
-          </tr>
-          <tr>
-            <td>Nama Mata Kuliah</td>
-            <td>: $nilai->matakuliah_model->get_by_id($kode_matakuliah)->nama_matakuliah;</td>
-          </tr>
-          <tr>
-            <td>SKS</td>
-            <td>:  $nilai->matakuliah_model->get_by_id($kode_matakuliah)->sks; ?></td>
-          </tr>
-          <?php
-          $thn = 1;
-          $semester = "Ganjil";
-          if($semester == "Ganjil"){
-            $tampilSemester = "Ganjil";
-          }
-          else{
-            $tampilSemester = "Genap";
-          }
-          ?>
-          <tr>
-            <td>
-              Tahun Akademik (Semester)
-              <td>: <?= $tampilSemester; ?></td>
-            </td>
-          </tr>
-        </table>
-      </center>
-
-      <form action="administrator/nilai/simpan_nilai" method="post">
-        <table class="table table-striped table-hover table-bordered mt-3">
-          <tr>
-            <th>NO</th>
-            <th>NIM</th>
-            <th>NAMA MAHASISWA</th>
-            <th>NILAI</th>
-          </tr>
-
-          <?php
-          $no = 1;
-          //foreach($list_nilai as $row): ?>
-          <tr>
-            <td width="25px;"><?= $no++; ?></td>
-            <td> $row->nim; ?></td>
-            <td> $row->nama_lengkap; ?></td>
-            <input type="hidden" name="id_krs[]" value="">
-            <td width="25px;">
-              <input type="text" name="nilai[]" class="form-control" value="">
-            </td>
-          </tr>
-        </table><br>
-        <button type="submit" class="btn btn-primary">Simpan</button>
-      </form>
-</div>
-@endsection
+  @endsection

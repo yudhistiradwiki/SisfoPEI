@@ -8,6 +8,7 @@ use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\TahunAkadController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KrsController;
+use App\Http\Controllers\NilaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,9 @@ Route::get('/krs/view', function () {
 }) -> middleware('auth');
 
 Route::get('/krs/view/{nim}/{thn}', [KrsController::class, 'coba']);
+
+
+Route::get('/nilai/view/{kode_matakuliah}/{thn}', [NilaiController::class, 'coba']);
 
 Route::get('/nilai', function () {
     return view('nilai-select');
