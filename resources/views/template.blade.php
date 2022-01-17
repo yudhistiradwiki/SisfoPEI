@@ -47,8 +47,21 @@
       <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
-            <h3 class="welcome-sub-text">Your performance summary this week </h3>
+              <?php
+                date_default_timezone_set("Asia/Jakarta");
+                $jam = date('H:i');
+                if ($jam > '05:30' && $jam < '10:00') {
+                    $salam = 'Morning';
+                } elseif ($jam >= '10:00' && $jam < '15:00') {
+                    $salam = 'Afternoon';
+                } elseif ($jam >= '15:00' && $jam < '18:00') {
+                    $salam = 'Evening';
+                } else {
+                    $salam = 'Night';
+                }
+              ?>
+            <h1 class="welcome-text">Good <?=$salam?>, <span class="text-black fw-bold">{{auth()->user()->name}}</span></h1>
+            <h3 class="welcome-sub-text">Please use this system to take the desired KRS course </h3>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -137,18 +150,15 @@
           </li>
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="{{asset('theme/images/faces/face8.jpg')}}" alt="Profile image"> </a>
+              <img class="img-xs rounded-circle" src="{{ url('/' . auth()->user()->photo) }}" alt="Profile image"> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="{{asset('theme/images/faces/face8.jpg')}}" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                <img class="img-md rounded-circle" src="{{ url('/' . auth()->user()->photo) }}" width="80px" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">{{auth()->user()->name}}</p>
+                <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              <a class="dropdown-item" href="/logout"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
         </ul>

@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin2 </title>
+  <title>Login SisfoPEI </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="theme/vendors/feather/feather.css">
   <link rel="stylesheet" href="theme/vendors/mdi/css/materialdesignicons.min.css">
@@ -58,8 +58,8 @@
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>
                   <div class="mb-2">
-                    <button type="submit" class="btn btn-block btn-facebook auth-form-btn">
-                      <i class="ti-facebook me-2"></i>Log in to sisfo PEI
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                      <i class="ti-unlock me-2"></i>Log in to sisfo PEI
                     </button>
                   </div>
                 <div class="text-center mt-4 fw-light">

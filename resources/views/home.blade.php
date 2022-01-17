@@ -19,8 +19,88 @@ Yudhistira
 
 
 @section('konten')
+<div class="row">
+    <div class="col-lg-8 d-flex flex-column">
+      <div class="row flex-grow">
+        <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+          <div class="card card-rounded">
+            <div class="card-body">
+              <div class="d-sm-flex justify-content-between align-items-start">
+                <div>
+                 <h4 class="card-title card-title-dash">Performance Line Chart</h4>
+                 <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the printing</h5>
+                </div>
+                <div id="performance-line-legend"></div>
+              </div>
+              <div class="chartjs-wrapper mt-5">
+                <canvas id="performaneLine"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 d-flex flex-column">
+      <div class="row flex-grow">
+        <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+          <div class="card bg-primary card-rounded">
+            <div class="card-body pb-0">
+              <h4 class="card-title card-title-dash text-white mb-4">Status User</h4>
+              <div class="row">
+                <ul class="bullet-line-list">
+                    <li>
+                      <div class="d-flex justify-content-between">
+                        <div><span class="text-light">Name :</span></div>
+                        <p><span class="text-light">Muhammad Dwiki Yudhistira</span></p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex justify-content-between">
+                        <div><span class="text-light">Role :</span></div>
+                        <p><span class="text-light">Mahasiswa</span></p>
+                      </div>
+                    </li>
+
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+          <div class="card card-rounded">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
+                    <div class="circle-progress-width">
+                      <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
+                    </div>
+                    <div>
+                      <p class="text-small mb-2">Total Visitors</p>
+                      <h4 class="mb-0 fw-bold">26.80%</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="circle-progress-width">
+                      <div id="visitperday" class="progressbar-js-circle pr-2"></div>
+                    </div>
+                    <div>
+                      <p class="text-small mb-2">Visits per day</p>
+                      <h4 class="mb-0 fw-bold">9065</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="row flex-grow">
-    <div class="col-md-8 col-lg-8 grid-margin stretch-card">
+    <div class="col-md-12 col-lg-12 grid-margin stretch-card">
       <div class="card card-rounded">
         <div class="card-body card-rounded">
           <h4 class="card-title  card-title-dash">Tanggal-tanggal Penting</h4>
@@ -89,47 +169,9 @@ Yudhistira
                 </div>
               </div>
             </div>
-          <div class="list align-items-center pt-3">
-            <div class="wrapper w-100">
-              <p class="mb-0">
-                <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4 col-lg-4 grid-margin stretch-card">
-      <div class="card card-rounded">
-        <div class="card-body">
-          <div class="d-flex align-items-center justify-content-between mb-3">
-            <h4 class="card-title card-title-dash">Activities</h4>
-            <p class="mb-0">Tentang User</p>
-          </div>
-          <ul class="bullet-line-list">
-            <li>
-              <div class="d-flex justify-content-between">
-                <div><span class="text-light-green">Name  :</span></div>
-                <p>Muhammad Dwiki Yudhistira</p>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-between">
-                <div><span class="text-light-green">Role  :</span></div>
-                <p>Mahasiswa</p>
-              </div>
-            </li>
-
-          </ul>
-          <div class="list align-items-center pt-3">
-            <div class="wrapper w-100">
-              <p class="mb-0">
-                <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 @endsection

@@ -17,8 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         User::create([
-            'name' => 'yudis',
+            'username' => 'yudhistiradwiki',
+            'id_session' => '',
+            'level' => 'user',
+            'blokir' => 'N',
+            'name' => 'Muhammad Dwiki Yudhistira',
             'email' => 'dadas@gmail.com',
+            'photo' => '',
             'password' => Hash::make('1')
         ]);
     }
