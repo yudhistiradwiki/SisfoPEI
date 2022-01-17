@@ -29,7 +29,7 @@ Yudhistira
         <form class="forms-sample" action="/krs/view/201904001/2" method="GET" enctype="multipart/form-data">
             {{ csrf_field() }}
           <div class="form-group">
-            <label for="nim">Nim</label>
+            <label for="nim">NIM</label>
             <input type="text" class="form-control" id="nim" value="{{ old('nim') }}" name="nim" placeholder="Nomor Induk Mahasiswa">
           </div>
           <div class="form-group">
