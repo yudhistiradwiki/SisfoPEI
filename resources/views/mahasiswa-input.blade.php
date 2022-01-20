@@ -31,10 +31,14 @@ Yudhistira
           <div class="form-group">
             <label for="nim">Nim</label>
             <input type="text" class="form-control" id="nim" value="{{ old('nim') }}" name="nim" placeholder="Nomor Induk Mahasiswa">
-          </div>
+        </div>
           <div class="form-group">
             <label for="nama_lengkap">Nama</label>
             <input type="text" class="form-control" id="nama_lengkap" value="{{ old('nama_lengkap') }}" name="nama_lengkap" placeholder="Nama Lengkap">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" id="password" value="{{ old('password') }}" name="password" placeholder="Password">
           </div>
           <div class="form-group">
             <label for="alamat">Alamat</label>

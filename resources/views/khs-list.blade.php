@@ -42,9 +42,17 @@ Yudhistira
                       @endforeach
                       <tr>
                         <td><strong>Tahun Akademik (Semester)</strong></td>
-                        <td>&nbsp;:@foreach ($join as $dataMahasiswa) {{$dataMahasiswa -> semester}}
-                            @endforeach
-                            </td>
+                        <td>&nbsp;:@foreach ($join as $dataMahasiswa)
+                            <?php
+                      $semester = $dataMahasiswa->semester == "Ganjil";
+                      if($semester == "Ganjil"){
+                        $tampilSemester = "Ganjil";
+                      }
+                      else{
+                        $tampilSemester = "Genap";
+                      }
+                      ?>@endforeach
+                            <?=$tampilSemester;?></td>
                       </tr>
                     </table>
                   </center>

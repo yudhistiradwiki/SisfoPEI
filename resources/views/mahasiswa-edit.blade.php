@@ -38,6 +38,10 @@ Yudhistira
               <input type="text" class="form-control" id="nama_lengkap" value="{{ $dataMhs -> nama_lengkap }}" name="nama_lengkap" placeholder="Nama Lengkap">
             </div>
             <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" value="{{ $dataMhs -> password }}" name="password" placeholder="Password">
+              </div>
+            <div class="form-group">
               <label for="alamat">Alamat</label>
               <input type="text" class="form-control" id="alamat" value="{{ $dataMhs -> alamat }}" name="alamat" placeholder="Alamat">
             </div>

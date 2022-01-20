@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
@@ -32,6 +33,7 @@ class MahasiswaController extends Controller
         DB::table('mahasiswa') -> insert([
             'nim' => $a -> nim,
             'nama_lengkap' => $a -> nama_lengkap,
+            'password' => Hash::make($a -> password),
             'alamat' => $a -> alamat,
             'email' => $a -> email,
             'telepon' => $a -> telepon,
@@ -63,6 +65,7 @@ class MahasiswaController extends Controller
             'nama_lengkap' => $a -> nama_lengkap,
             'alamat' => $a -> alamat,
             'email' => $a -> email,
+            'password' => Hash::make($a -> password),
             'telepon' => $a -> telepon,
             'tempat_lahir' => $a -> tempat_lahir,
             'tanggal_lahir' => $a -> tanggal_lahir,

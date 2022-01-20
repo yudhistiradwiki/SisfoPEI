@@ -18,7 +18,11 @@ class LoginController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
-        if(Auth::attempt($cek)) {
+        if(Auth::guard('mahasiswa')->attempt($cek)) {
+            $a -> session()->regenerate();
+            return redirect()->intended('/');
+        }
+        elseif (Auth::guard('user')->attempt($cek)) {
             $a -> session()->regenerate();
             return redirect()->intended('/');
         }

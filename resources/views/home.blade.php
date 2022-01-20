@@ -51,13 +51,21 @@ Yudhistira
                     <li>
                       <div class="d-flex justify-content-between">
                         <div><span class="text-light">Name :</span></div>
-                        <p><span class="text-light">Muhammad Dwiki Yudhistira</span></p>
+                        @if(Str::length(Auth::guard('user')->user())>0)
+                        <p><span class="text-light">{{Auth::guard('user')->user()->name}}</span></p>
+                        @elseif(Str::length(Auth::guard('mahasiswa')->user())>0)
+                        <p><span class="text-light">{{Auth::guard('mahasiswa')->user()->nama_lengkap}}</span></p>
+                        @endif
                       </div>
                     </li>
                     <li>
                       <div class="d-flex justify-content-between">
                         <div><span class="text-light">Role :</span></div>
+                        @if(Str::length(Auth::guard('user')->user())>0)
+                        <p><span class="text-light">Administrator</span></p>
+                        @elseif(Str::length(Auth::guard('mahasiswa')->user())>0)
                         <p><span class="text-light">Mahasiswa</span></p>
+                        @endif
                       </div>
                     </li>
 
