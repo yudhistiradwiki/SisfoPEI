@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\LoginMhs;
+use App\Models\LoginDsn;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'photo' => '',
             'password' => Hash::make('1')
         ]);*/
-        LoginMhs::create([
+        /*LoginMhs::create([
             'nim' => '201904008',
             'email' => '',
             'alamat' => 'jalanss',
@@ -40,6 +41,16 @@ class DatabaseSeeder extends Seeder
             'nama_prodi' => '',
             'photo' => '',
             'password' => Hash::make('2')
+        ]);*/
+        LoginDsn::create([
+            'nidn' => '201904008',
+            'nama_dosen' => 'ss',
+            'alamat' => 'jalanss',
+            'email' => 'dosen1@gmail.com',
+            'telp' => '000',
+            'jenis_kelamin' => '',
+            'photo' => '',
+            'password' => Hash::make('1')
         ]);
     }
 }

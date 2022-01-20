@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class DosenController extends Controller
 {
@@ -36,7 +37,8 @@ class DosenController extends Controller
             'jenis_kelamin' => $a -> jenis_kelamin,
             'email' => $a -> email,
             'telp' => $a -> telp,
-            'photo' => $pathPublic
+            'photo' => $pathPublic,
+            'password' => Hash::make($a -> password),
         ]);
         return redirect('/dosen') -> with('berhasil', 'Data berhasil disimpan!');
     }
@@ -62,7 +64,8 @@ class DosenController extends Controller
             'jenis_kelamin' => $a -> jenis_kelamin,
             'email' => $a -> email,
             'telp' => $a -> telp,
-            'photo' => $pathPublic
+            'photo' => $pathPublic,
+            'password' => Hash::make($a -> password),
         ]);
         return redirect('/dosen') -> with('berhasil', 'Data berhasil disimpan!');
     }

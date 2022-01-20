@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'mahasiswas',
         ],
+        'dosen' => [
+            'driver' => 'session',
+            'provider' => 'dosens',
+        ],
         'user' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -76,6 +80,11 @@ return [
         'mahasiswas' => [
             'driver' => 'eloquent',
             'model' => App\Models\LoginMhs::class,
+        ],
+
+        'dosens' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\LoginDsn::class,
         ],
         // 'users' => [
         //     'driver' => 'database',

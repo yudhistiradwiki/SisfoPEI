@@ -36,10 +36,23 @@
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="/">
+            @if(Str::length(Auth::guard('user')->user())>0)
+            <a class="navbar-brand brand-logo" href="/admin">
+            @elseif(Str::length(Auth::guard('mahasiswa')->user())>0)
+            <a class="navbar-brand brand-logo" href="/student">
+            @elseif(Str::length(Auth::guard('dosen')->user())>0)
+            <a class="navbar-brand brand-logo" href="/lecture">
+            @endif
             <img src="{{asset('theme/images/logo.svg')}}" alt="logo" />
           </a>
-          <a class="navbar-brand brand-logo-mini" href="/">
+
+          @if(Str::length(Auth::guard('user')->user())>0)
+          <a class="navbar-brand brand-logo-mini" href="/admin">
+          @elseif(Str::length(Auth::guard('mahasiswa')->user())>0)
+          <a class="navbar-brand brand-logo-mini" href="/student">
+            @elseif(Str::length(Auth::guard('dosen')->user())>0)
+          <a class="navbar-brand brand-logo-mini" href="/lecture">
+          @endif
             <img src="{{asset('theme/images/logo-mini.svg')}}" alt="logo" />
           </a>
         </div>
@@ -64,6 +77,8 @@
             <h1 class="welcome-text">Selamat <?=$salam?>, <span class="text-black fw-bold">{{Auth::guard('user')->user()->name}}</span></h1>
             @elseif(Str::length(Auth::guard('mahasiswa')->user())>0)
             <h1 class="welcome-text">Selamat <?=$salam?>, <span class="text-black fw-bold">{{Auth::guard('mahasiswa')->user()->nama_lengkap}}</span></h1>
+            @elseif(Str::length(Auth::guard('dosen')->user())>0)
+            <h1 class="welcome-text">Selamat <?=$salam?>, <span class="text-black fw-bold">{{Auth::guard('dosen')->user()->nama_dosen}}</span></h1>
             @endif
             <h3 class="welcome-sub-text">Silahkan gunakan sistem ini untuk mengambil krs</h3>
           </li>
@@ -106,6 +121,20 @@
               <a class="dropdown-item" href="/logout"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
+          @elseif(Str::length(Auth::guard('dosen')->user())>0)
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="{{ url('/' . Auth::guard('dosen')->user()->photo) }}" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="{{ url('/' . Auth::guard('dosen')->user()->photo) }}" width="85px" height="80px" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">{{Auth::guard('dosen')->user()->nama_dosen}}</p>
+                <p class="fw-light text-muted mb-0">{{Auth::guard('dosen')->user()->email}}</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item" href="/logout"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
           @endif
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
@@ -141,7 +170,13 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/">
+            @if(Str::length(Auth::guard('user')->user())>0)
+            <a class="nav-link" href="/admin">
+            @elseif(Str::length(Auth::guard('mahasiswa')->user())>0)
+            <a class="nav-link" href="/student">
+                @elseif(Str::length(Auth::guard('dosen')->user())>0)
+            <a class="nav-link" href="/lecture">
+            @endif
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>

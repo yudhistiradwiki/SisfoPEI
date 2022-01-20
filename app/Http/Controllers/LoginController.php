@@ -20,11 +20,15 @@ class LoginController extends Controller
         ]);
         if(Auth::guard('mahasiswa')->attempt($cek)) {
             $a -> session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/student');
         }
         elseif (Auth::guard('user')->attempt($cek)) {
             $a -> session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/admin');
+        }
+        elseif (Auth::guard('dosen')->attempt($cek)) {
+            $a -> session()->regenerate();
+            return redirect()->intended('/lecture');
         }
         return back() -> with('loginError', 'Maaf! Gagal Login');
     }

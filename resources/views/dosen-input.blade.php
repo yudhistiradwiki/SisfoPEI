@@ -37,6 +37,10 @@ Yudhistira
             <input type="text" class="form-control" id="nama_dosen" value="{{ old('nama_dosen') }}" name="nama_dosen" placeholder="Nama Lengkap">
           </div>
           <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" id="password" value="{{old('password') }}" name="password" placeholder="Password">
+          </div>
+          <div class="form-group">
             <label for="alamat">Alamat</label>
             <input type="text" class="form-control" id="alamat" value="{{ old('alamat') }}" name="alamat" placeholder="Alamat">
           </div>

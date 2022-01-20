@@ -36,4 +36,34 @@ class KrsController extends Controller
         return view('krs-listt', $data);
     }
 
+    public function datamatkul(){
+        $datamk = DB::table('matakuliah') -> get();
+        return view('krs-view', ['datamk' => $datamk]);
+    }
+
+    public function simpan(Request $a)
+    {
+        if(!empty($a->input('isimatkul'))){
+            $will_insert = [];
+            $id_thn = 1;
+            $nim = 201904001;
+            foreach ($a->input('isimatkul') as $key => $value){
+                DB::table('krs') -> insert([
+                    'id_thn_akad' => $id_thn,
+                    'nim' => $nim,
+                    'kode_matakuliah' => $value,
+                    'nilai' => '',
+                ]);
+            }
+
+        }
+        return redirect('/krs') -> with('berhasil', 'Data berhasil disimpan!');
+    }
+
+    public function cari(Request $x)
+    {
+        $cari = $x -> cari;
+        $datamk = DB::table('matakuliah') -> where('semester', 'like', "%" . $cari . "%")-> get();
+        return view('krs-view', ['datamk' => $datamk]);
+    }
 }

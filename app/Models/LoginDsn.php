@@ -8,14 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class LoginMhs extends Authenticatable
+class LoginDsn extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = "mahasiswa";
-    protected $primaryKey = "id";
+    protected $table = "dosen";
+    protected $primaryKey = "id_dosen";
     protected $fillable = [
-        'nama_lengkap',
+        'nama_dosen',
         'email',
         'password',
     ];
