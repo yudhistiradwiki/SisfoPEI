@@ -49,9 +49,9 @@ Yudhistira
           <table class="table table-striped">
             <thead>
               <tr>
+                <th>Photo</th>
                 <th>NIM</th>
                 <th>Nama Lengkap</th>
-                <th>Alamat</th>
                 <th>Email</th>
                 <th>Program Studi</th>
                 <th>Aksi</th>
@@ -60,9 +60,11 @@ Yudhistira
             <tbody>
             @foreach ($viewMhs as $x)
               <tr>
+                <td class="py-1">
+                    <img src="{{url('/' . $x->photo) }}" alt="image"/>
+                  </td>
                 <td>{{ $x -> nim }}</td>
                 <td>{{ $x -> nama_lengkap }}</td>
-                <td>{{ $x -> alamat }}</td>
                 <td>{{ $x -> email }}</td>
                 <td>{{ $x -> nama_prodi }}</td>
                 <td>

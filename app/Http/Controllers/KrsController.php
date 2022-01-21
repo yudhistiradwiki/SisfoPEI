@@ -19,9 +19,10 @@ class KrsController extends Controller
         $dataMhs = DB::table('krs') -> where('nim', $id) -> get();
         return view('krs-list', ['dataMhs' => $dataMhs]);
     }
-    public function select(){
-        $dataThn = DB::table('tahun_akademik') -> get();
-        return view('krs-select', ['dataThn' => $dataThn]);
+    public function index($id,$thn){
+        $dataMhswa = DB::table('krs') -> where('nim', $id) -> where('id_thn_akad',$thn) -> get();
+        $data = ['join' =>$this->KrsModel->allData($id,$thn), 'mhs' => $dataMhswa];
+        return view('krs-select', $data);
     }
     public function search2($id, $thn){
         $dataMhs = DB::table('krs') -> where('nim', $id) -> where('id_thn_akad', $thn) -> get();
@@ -45,12 +46,12 @@ class KrsController extends Controller
     {
         if(!empty($a->input('isimatkul'))){
             $will_insert = [];
-            $id_thn = 1;
-            $nim = 201904001;
+            $nim =
+            $id_thn = 6;
             foreach ($a->input('isimatkul') as $key => $value){
                 DB::table('krs') -> insert([
                     'id_thn_akad' => $id_thn,
-                    'nim' => $nim,
+                    'nim' => '201904012',
                     'kode_matakuliah' => $value,
                     'nilai' => '',
                 ]);

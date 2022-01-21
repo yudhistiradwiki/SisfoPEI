@@ -95,7 +95,7 @@ Route::get('/tahunakad/delete/{nim}', [TahunAkadController::class, 'delete'])-> 
 Route::get('/tahunakad/cari', [TahunAkadController::class, 'cari'])-> middleware('auth:user,mahasiswa,dosen');;
 
 //krs
-Route::get('/krs', [KrsController::class, 'select'])-> middleware('auth:user,mahasiswa,dosen');
+Route::get('/krs/{nim}/{id_thn_akad}', [KrsController::class, 'index'])-> middleware('auth:user,mahasiswa,dosen');
 
 /*Route::get('/krs/view', function () {
     return view('krs-list');

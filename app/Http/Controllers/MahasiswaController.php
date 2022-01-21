@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MahasiswaController extends Controller
 {
     public function index()
     {
-        $dataMhs = DB::table('mahasiswa') -> paginate(5);
+        $dataMhs = DB::table('mahasiswa') -> paginate(7);
         return view('mahasiswa-view', ['viewMhs' => $dataMhs]);
     }
 
@@ -43,6 +44,7 @@ class MahasiswaController extends Controller
             'nama_prodi' => $a -> nama_prodi,
             'photo' => $pathPublic
         ]);
+       toast('Data mahasiswa berhasil ditambahkan!','success');
         return redirect('/mahasiswa') -> with('berhasil', 'Data berhasil disimpan!');
     }
     public function edit($id){
@@ -73,6 +75,7 @@ class MahasiswaController extends Controller
             'nama_prodi' => $a -> nama_prodi,
             'photo' => $pathPublic
         ]);
+        toast('Data mahasiswa berhasil diperbarui!','success');
         return redirect('/mahasiswa') -> with('berhasil', 'Data berhasil disimpan!');
     }
     public function delete($nim)
@@ -80,6 +83,7 @@ class MahasiswaController extends Controller
         $data = DB::table('mahasiswa') -> where('nim', $nim) -> first();
         File::delete($data->photo);
         DB::table('mahasiswa')->where('nim', $nim) -> delete();
+        toast('Data mahasiswa berhasil dihapus!','success');
         return redirect('/mahasiswa');
     }
 
