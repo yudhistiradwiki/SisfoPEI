@@ -17,14 +17,14 @@
               data: [50, 110, 60, 290, 200, 115, 130, 170, 90, 210, 240, 280, 200],
               backgroundColor: saleGradientBg,
               borderColor: [
-                  '#FFA500',
+                  '#F94001',
               ],
               borderWidth: 1.5,
               fill: true, // 3: no fill
               pointBorderWidth: 1,
               pointRadius: [4, 4, 4, 4, 4,4, 4, 4, 4, 4,4, 4, 4],
               pointHoverRadius: [2, 2, 2, 2, 2,2, 2, 2, 2, 2,2, 2, 2],
-              pointBackgroundColor: ['#FFA500)', '#FFA500', '#FFA500', '#FFA500','#FFA500)', '#FFA500', '#FFA500', '#FFA500','#FFA500)', '#FFA500', '#FFA500', '#FFA500','#FFA500)'],
+              pointBackgroundColor: ['#F94001)', '#F94001', '#F94001', '#F94001','#F94001)', '#F94001', '#F94001', '#F94001','#F94001)', '#F94001', '#F94001', '#F94001','#F94001)'],
               pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
           },{
             label: 'Last week',
@@ -123,14 +123,14 @@
               data: [50, 110, 60, 290, 200, 115, 130, 170, 90, 210, 240, 280, 200],
               backgroundColor: saleGradientBg,
               borderColor: [
-                  '#FFA500',
+                  '#F94001',
               ],
               borderWidth: 1.5,
               fill: true, // 3: no fill
               pointBorderWidth: 1,
               pointRadius: [4, 4, 4, 4, 4,4, 4, 4, 4, 4,4, 4, 4],
               pointHoverRadius: [2, 2, 2, 2, 2,2, 2, 2, 2, 2,2, 2, 2],
-              pointBackgroundColor: ['#FFA500)', '#FFA500', '#FFA500', '#FFA500','#FFA500)', '#FFA500', '#FFA500', '#FFA500','#FFA500)', '#FFA500', '#FFA500', '#FFA500','#FFA500)'],
+              pointBackgroundColor: ['#F94001)', '#F94001', '#F94001', '#F94001','#F94001)', '#F94001', '#F94001', '#F94001','#F94001)', '#F94001', '#F94001', '#F94001','#F94001)'],
               pointBorderColor: ['#222437','#222437','#222437','#222437','#222437','#222437','#222437','#222437','#222437','#222437','#222437','#222437','#222437',],
           },{
             label: '# of Votes',
@@ -383,9 +383,9 @@
           },{
             label: 'This week',
             data: [215, 290, 210, 250, 290, 230, 290, 210, 280, 220, 190, 300],
-            backgroundColor: "#FFA500",
+            backgroundColor: "#F94001",
             borderColor: [
-                '#FFA500',
+                '#F94001',
             ],
             borderWidth: 0,
             fill: true, // 3: no fill
@@ -475,9 +475,9 @@
           },{
             label: 'This week',
             data: [215, 290, 210, 250, 290, 230, 290, 210, 280, 220, 190, 300],
-            backgroundColor: "#FFA500",
+            backgroundColor: "#F94001",
             borderColor: [
-                '#FFA500',
+                '#F94001',
             ],
             borderWidth: 0,
             fill: true, // 3: no fill
@@ -556,13 +556,13 @@
         datasets: [{
           data: [40, 20, 30, 10],
           backgroundColor: [
-            "#FFA500",
+            "#F94001",
             "#FDD0C7",
             "#52CDFF",
             "#81DADA"
           ],
           borderColor: [
-            "#FFA500",
+            "#F94001",
             "#FDD0C7",
             "#52CDFF",
             "#81DADA"
