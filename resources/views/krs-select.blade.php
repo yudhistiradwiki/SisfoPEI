@@ -27,30 +27,28 @@ Yudhistira
           Silahkan ambil data KRS dengan klik <a href="/krs/view">disini.</a>
         </p>
     <div class="table-responsive">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
             <tr>
-              <th>Tahun Akademik</th>
               <th>NIM</th>
+              <td>{{Auth::guard('mahasiswa')->user()->nim}}</td>
               <th>Nama Mahasiswa</th>
+              <td>{{Auth::guard('mahasiswa')->user()->nama_lengkap}}</td>
+            </tr>
+            <tr>
               <th>Semester</th>
-              <th>Jumlah SKS</th>
+              <td>5</td>
+              <th>Program Studi</th>
+              <td>{{Auth::guard('mahasiswa')->user()->nama_prodi}}</td>
             </tr>
           </thead>
           <tbody>
-          @foreach ($join as $x)
-            <tr>
-              <td>{{ $x -> id_thn_akad }}</td>
-              <td>{{ $x -> nim }}</td>
-              <td>{{ $x -> nama_lengkap }}</td>
-              <td>5</td>
-              <td>{{ $x -> sks }}</td>
-            </tr>
-            @endforeach
           </tbody>
         </table><br>
     </div>
   </div>
+    </div>
+</div>
   <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">

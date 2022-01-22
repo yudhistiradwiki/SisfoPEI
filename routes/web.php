@@ -96,11 +96,6 @@ Route::get('/tahunakad/cari', [TahunAkadController::class, 'cari'])-> middleware
 //krs
 Route::get('/krs/{nim}/{id_thn_akad}', [KrsController::class, 'index'])-> middleware('auth:user,mahasiswa,dosen');
 
-/*Route::get('/krs/view', function () {
-    return view('krs-list');
-}) -> middleware('auth');
-*/
-
 Route::get('/krs/view', function () {
     return view('krs-listt');
 }) -> middleware('auth:user,mahasiswa,dosen');
@@ -111,6 +106,7 @@ Route::post('/krs/save', [KrsController::class, 'simpan'])-> middleware('auth:us
 Route::get('/krs/cari', [KrsController::class, 'cari'])-> middleware('auth:user,mahasiswa,dosen');;
 
 Route::get('/krs/view/{nim}/{thn}', [KrsController::class, 'coba']);
+Route::get('/krs/view/{nim}/{thn}/cetak_pdf', [KrsController::class, 'cetak_pdf']);
 
 
 Route::get('/nilai/view/{kode_matakuliah}/{thn}', [NilaiController::class, 'coba']);

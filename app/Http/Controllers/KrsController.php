@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\Models\KrsModel;
 use App\Models\MahasiswaModel;
+use Barryvdh\DomPDF\PDF;
 
 class KrsController extends Controller
 {
@@ -58,7 +59,7 @@ class KrsController extends Controller
             }
 
         }
-        return redirect('/krs') -> with('berhasil', 'Data berhasil disimpan!');
+        return redirect('/krs/201904012/{id_thn}') -> with('berhasil', 'Data berhasil disimpan!');
     }
 
     public function cari(Request $x)
@@ -66,5 +67,14 @@ class KrsController extends Controller
         $cari = $x -> cari;
         $datamk = DB::table('matakuliah') -> where('semester', 'like', "%" . $cari . "%")-> get();
         return view('krs-view', ['datamk' => $datamk]);
+    }
+
+    public function cetak_pdf($id, $thn)
+    {
+        $dataMhswa = DB::table('mahasiswa') -> where('nim', $id) -> get();
+        $data = ['join' =>$this->KrsModel->allData($id,$thn), 'mhs' => $dataMhswa];
+        $pdf = PDF::loadview('krs-list', $data);
+        return $pdf->download('laporan-krs-pdf');
+
     }
 }

@@ -207,7 +207,7 @@
             </a>
             <div class="collapse" id="charts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="/krs">KRS</a></li>
+                <li class="nav-item"><a class="nav-link" href="/krs/{{Auth::guard('mahasiswa')->user()->nim}}/6">KRS</a></li>
                 <li class="nav-item"><a class="nav-link" href="/khs">KHS</a></li>
                 <li class="nav-item"><a class="nav-link" href="/nilai">Nilai Mahasiswa</a></li>
               </ul>
