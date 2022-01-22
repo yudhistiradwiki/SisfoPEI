@@ -36,6 +36,7 @@ Route::get('/lecture', function () {
 
 //login
 Route::get('/', [LoginController::class, 'index']) -> name('login') -> middleware('guest');
+Route::get('/login', [LoginController::class, 'index']) -> name('login') -> middleware('guest');
 Route::post('/login', [LoginController::class, 'auth']);
 Route::get('/logout', [LoginController::class, 'logout']);
 

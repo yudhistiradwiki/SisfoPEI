@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign in & Sign up Form</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="theme/login/style.css" />
 </head>
 
 <body>
@@ -14,9 +14,9 @@
     <div class="box">
       <div class="inner-box">
         <div class="forms-wrap">
-          <form action="index.html" autocomplete="off" class="sign-in-form">
+          <form action="/login" method="POST" autocomplete="off" class="sign-in-form">
             <div class="logo">
-              <img src="./img/logopei.png" alt="easyclass" />
+              <img src="theme/login/img/logopei.png">
               <h4>sisfo<font color="orange">PEI</font>
               </h4>
             </div>
@@ -26,27 +26,18 @@
               <h6>Belum menjadi mahasiswa PEI?</h6>
               <a href="#" class="toggle">Daftar</a>
             </div>
-
             <div class="actual-form">
-              <form method="POST" action="/login" class="pt-3">
-                @csrf
-                @if (session() -> has('loginError'))
-                {{session('loginError') }} <br>
-                @endif
                 <div class="input-wrap">
-                  <input name="email" type="email" minlength="4" class="input-field" autocomplete="off" required />
+                  <input name="email" type="email" class="input-field">
                   <label>Alamat Email</label>
                 </div>
-                @error('email')
-                {{$message}} <br>
-                @enderror
 
                 <div class="input-wrap">
-                  <input name="password" type="password" minlength="4" class="input-field" autocomplete="off" required />
+                  <input name="password" type="password" class="input-field">
                   <label>Kata Sandi</label>
                 </div>
 
-                <input type="submit" value="Masuk" class="sign-btn" />
+                <button type="submit" class="sign-btn"> Masuk </button>
 
                 <p class="text">
                   Lupa kata sandi?
@@ -55,9 +46,9 @@
             </div>
           </form>
 
-          <form action="index.html" autocomplete="off" class="sign-up-form">
+          <form action="/login" method="POST" class="sign-up-form">
             <div class="logo">
-              <img src="./img/logopei.png" alt="easyclass" />
+              <img src="theme/login/img/logopei.png">
               <h4>sisfo<font color="orange">PEI</font>
               </h4>
             </div>
@@ -97,9 +88,9 @@
 
         <div class="carousel">
           <div class="images-wrapper">
-            <img src="./img/coba1.png" class="image img-1 show" alt="" />
-            <img src="./img/coba2.png" class="image img-2" alt="" />
-            <img src="./img/coba3.png" class="image img-3" alt="" />
+            <img src="theme/login/img/coba1.png" class="image img-1 show" alt="" />
+            <img src="theme/login/img/coba2.png" class="image img-2" alt="" />
+            <img src="theme/login/img/coba3.png" class="image img-3" alt="" />
           </div>
 
           <div class="text-slider">
@@ -124,7 +115,7 @@
 
   <!-- Javascript file -->
 
-  <script src="app.js"></script>
+  <script src="theme/login/app.js"></script>
 </body>
 
 </html>
