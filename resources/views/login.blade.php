@@ -2,92 +2,121 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Login SisfoPEI </title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="theme/vendors/feather/feather.css">
-  <link rel="stylesheet" href="theme/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="theme/vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="theme/vendors/typicons/typicons.css">
-  <link rel="stylesheet" href="theme/vendors/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" href="theme/vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="theme/css/vertical-layout-light/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="theme/images/favicon.png" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login data</title>
+  <link rel="stylesheet" href="{{asset('theme/login/style.css')}}" />
 </head>
 
 <body>
-  <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="content-wrapper d-flex align-items-center auth px-0">
-        <div class="row w-100 mx-0">
-          <div class="col-lg-4 mx-auto">
-            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="theme/images/logo.svg" width="500px" alt="logo">
+  <main>
+    <div class="box">
+      <div class="inner-box">
+        <div class="forms-wrap">
+          <form method="POST" action="/login" class="sign-in-form">
+            @csrf
+            <div class="logo">
+              <img src="{{asset('theme/login/img/logopei.png')}}">
+              <h4>sisfo<font color="orange">PEI</font>
+              </h4>
+            </div>
+
+            <div class="heading">
+              <h2>Selamat Datang</h2>
+              <h6>Belum menjadi mahasiswa PEI?</h6>
+              <a href="#" class="toggle">Daftar</a>
+            </div>
+            <div class="actual-form">
+                <div class="input-wrap">
+                  <input name="email" type="email" class="input-field">
+                  <label>Alamat Email</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input name="password" type="password" class="input-field">
+                  <label>Kata Sandi</label>
+                </div>
+
+                <button type="submit" class="sign-btn"> Masuk </button>
+
+                <p class="text">
+                  Lupa kata sandi?
+                  <a href="#">Ganti kata sandi</a> sekarang.
+                </p>
+            </div>
+          </form>
+
+          <form action="/login" method="POST" class="sign-up-form">
+            <div class="logo">
+              <img src="{{asset('theme/login/img/logopei.png')}}">
+              <h4>sisfo<font color="orange">PEI</font>
+              </h4>
+            </div>
+
+            <div class="heading">
+              <h2>Halo!</h2>
+              <h6>Sudah memiliki akun?</h6>
+              <a href="#" class="toggle">Masuk</a>
+            </div>
+
+            <div class="actual-form">
+              <div class="input-wrap">
+                <input type="text" minlength="4" class="input-field" autocomplete="off" required />
+                <label>Nama Lengkap</label>
               </div>
-              <h4>Hello! let's get started</h4>
-              <h6 class="fw-light">Sign in to continue.</h6>
-              <form method="POST" action="/login" class="pt-3">
-                @csrf
-                @if (session() -> has('loginError'))
-                {{session('loginError') }} <br>
-                @endif
-                <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" name="email">
-                </div>
-                @error('email')
-                {{$message}} <br>
-                @enderror
-                <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" name="password">
-                </div>
-                <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-                    <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
-                      Keep me signed in
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
-                </div>
-                  <div class="mb-2">
-                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
-                      <i class="ti-unlock me-2"></i>Log in to sisfo PEI
-                    </button>
-                  </div>
-                <div class="text-center mt-4 fw-light">
-                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
-                </div>
-              </form>
+
+              <div class="input-wrap">
+                <input type="email" class="input-field" autocomplete="off" required />
+                <label>Alamat Email</label>
+              </div>
+
+              <div class="input-wrap">
+                <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                <label>Kata Sandi</label>
+              </div>
+
+              <input type="submit" value="Daftar" class="sign-btn" />
+
+              <p class="text">
+                Dengan mendaftar saya setuju dengan
+                <a href="#">kebijakan privasi</a> dan
+                <a href="#">persyaratan layanan</a> menjadi mahasiswa PEI
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div class="carousel">
+          <div class="images-wrapper">
+            <img src="{{asset('theme/login/img/coba1.png')}}" class="image img-1 show" alt="" />
+            <img src="{{asset('theme/login/img/coba2.png')}}" class="image img-2" alt="" />
+            <img src="{{asset('theme/login/img/coba3.png')}}" class="image img-3" alt="" />
+          </div>
+
+          <div class="text-slider">
+            <div class="text-wrap">
+              <div class="text-group">
+                <h2>Ambil KRS secara online</h2>
+                <h2>Melihat data nilai KHS</h2>
+                <h2>Mahasiswa dapat akses online</h2>
+              </div>
+            </div>
+
+            <div class="bullets">
+              <span class="active" data-value="1"></span>
+              <span data-value="2"></span>
+              <span data-value="3"></span>
             </div>
           </div>
         </div>
       </div>
-      <!-- content-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="theme/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="theme/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="theme/js/off-canvas.js"></script>
-  <script src="theme/js/hoverable-collapse.js"></script>
-  <script src="theme/js/template.js"></script>
-  <script src="theme/js/settings.js"></script>
-  <script src="theme/js/todolist.js"></script>
-  <!-- endinject -->
+  </main>
+
+  <!-- Javascript file -->
+
+  <script src="{{asset('theme/login/app.js')}}"></script>
 </body>
 
 </html>
